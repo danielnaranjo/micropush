@@ -1,18 +1,26 @@
 require('dotenv').config()
+
 var $express = require('./_express');
-var $apn = require('./_apn');
+
 var $fcm = require('./_fcm');
-$apn.init({
-  token: {
-    key: process.env.ios_p8,
-    keyId: process.env.ios_keyid,
-    teamId: process.env.ios_teamid
-  },
-  production: true
-});
+
+require('now-env');
+
+if(process.env.ios_enabled){
+  var $apn = require('./_apn');
+  $apn.init({
+    token: {
+      key: process.env.ios_p8,
+      keyId: process.env.ios_keyid,
+      teamId: process.env.ios_teamid
+    },
+    production: true
+  });
+}
 $fcm.init({
-  token: process.env.android_apikey
+  token: process.env.cloudmessaging
 })
+
 $express.init({
   view: {
     body: {
