@@ -1,0 +1,9 @@
+{
+  "env": {
+    "cloudmessaging": "@cloudmessaging",
+    "ios_p8": "@cloudmessaging",
+    "ios_keyid": "@cloudmessaging",
+    "ios_teamid": "@ios_teamid",
+    "ios_enabled": "@ios_enabled"
+  }
+}
