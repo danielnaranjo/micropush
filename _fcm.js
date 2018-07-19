@@ -1,7 +1,7 @@
 var FCM = require('fcm-push');
 module.exports = {
   init: function(options) {
-    this.fcm = new FCM(process.env.android_apikey);
+    this.fcm = new FCM(process.env.cloudmessaging);
   },
   send: function(options) {
     this.fcm.send(options, function(err, response){
