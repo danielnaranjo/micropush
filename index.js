@@ -5,7 +5,7 @@ var $express = require('./_express');
 var $fcm = require('./_fcm');
 
 require('now-env');
-
+/*
 if(process.env.ios_enabled){
   var $apn = require('./_apn');
   $apn.init({
@@ -16,7 +16,7 @@ if(process.env.ios_enabled){
     },
     production: true
   });
-}
+}*/
 $fcm.init({
   token: process.env.cloudmessaging
 })
@@ -34,11 +34,11 @@ $express.init({
         let tokens = body.type.split(".")
         let os = tokens[1];
         if(tokens[0].toLowerCase() === '$push') {
-          if(os === 'ios') {
-            $apn.send(body.options);
-          } else if (os === 'android') {
+          //if(os === 'ios') {
+          //  $apn.send(body.options);
+          //} else if (os === 'android') {
             $fcm.send(body.options);
-          }
+          //}
         }
         $express.respond({
           req: req,
