@@ -28,16 +28,6 @@ $express.init({
     }
   },
   routes: {
-    get: {
-      "/": function(){
-        $express.respond({
-          response: { 
-            status: "OK",
-            code: 200
-          }
-        })
-      }
-    },
     post: {
       "/": function(req, res){
         let body = req.body;
