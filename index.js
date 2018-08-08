@@ -29,7 +29,7 @@ $express.init({
   },
   routes: {
     get: {
-      "/": function(req, res){
+      "/": function(){
         $express.respond({
           response: { 
             status: "OK",
